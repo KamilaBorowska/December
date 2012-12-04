@@ -1,22 +1,24 @@
+<% use URI::Escape; sub html { $^a.trans: '<>&"' => <&lt; &gt; &amp; &quot;> } %>
 <!doctype html>
 <meta charset=utf-8>
-<title>December - <%= $^a %></title>
+<title>December - <%= html $^a %></title>
 <link rel=stylesheet href='http://perlcabal.org/~glitchmr/wiki/style.css'>
 <div class=menu>
 
 <ul>
 <li class=camelia><a href='/'><img src='http://perlcabal.org/~glitchmr/wiki/camelia2.png' alt='Main page'></a>
-<li><a href="/<%= $^a %>/edit">Edit</a>
-<li><a href="/<%= $^a %>/log">Log</a>
+<li><a href="/<%= html uri_escape $^a %>/edit">Edit</a>
+<li><a href="/<%= html uri_escape $^a %>/log">Log</a>
 <li><a href="/RANDOM">Random page</a>
 </ul>
 </div>
-<h1><%= $^a %></h1>
-<form method=post action="/<%= $^a %>/edit">
+<h1><%= html $^a %></h1>
+<form method=post action="/uri_escape html <%= $^a %>/edit">
 <table>
 <tr>
 <td colspan=2>
-<textarea name=content cols=78 rows=15><%= $^b %></textarea>
+<textarea name=content cols=78 rows=15>
+<%= html $^b %></textarea>
 <tr>
 <td>
 <label>Edit reason: <input name=reason></label>

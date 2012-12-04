@@ -1,4 +1,15 @@
+<% use URI::Escape; sub html { $^a.trans: '<>&"' => <&lt; &gt; &amp; &quot;> } %>
 <!doctype html>
+<meta charset=utf-8>
 <title>December - 404</title>
-<p><%= $^a %> doesn't seem to exist. Would you like to
-   <a href="/<%= $^a %>/edit">create it</a>?
+<link rel=stylesheet href='http://perlcabal.org/~glitchmr/wiki/style.css'>
+<div class=menu>
+
+<ul>
+<li class=camelia><a href='/'><img src='http://perlcabal.org/~glitchmr/wiki/camelia2.png' alt='Main page'></a>
+<li><a href="/RANDOM">Random page</a>
+</ul>
+</div>
+<h1>Yet another useless 404 page</h1>
+<p><%= html $^a %> doesn't seem to exist. Would you like to
+   <a href="/<%= html uri_escape $^a %>/edit">create it</a>?
