@@ -66,7 +66,7 @@ get /^\/(<-[/]>*)[\/(<[0..9a..fA..F]>**5..*)]?\/?$/ => sub ($name is copy, $revi
 
 get /^\/(<-[/]>*)\/log[\/(<[0..9a..fA..F]>**5..*)]?\/?$/ => sub ($name is copy, $from is copy) {
     $name = uri_unescape $name;
-    my @log = git('log', '--oneline', '--', $name).lines.map: {[.split: ' ', 2]};
+    my @log = git('log', "--pretty=%h\x01%s\x01%ar\x01%ai", '--', $name).lines.map: {[.split: "\x01"]};
     template 'log.tt', $name, $(@log), $from, $from ?? 'to revision' !! 'from revision';
 }
 

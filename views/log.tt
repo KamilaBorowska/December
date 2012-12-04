@@ -15,10 +15,10 @@
 </div>
 <h1><%= html $^a %></h1>
 <table>
-<tr><th>Revision<th>Description<th>Action<th>Diff <%= $^d %>
+<tr><th>Time<th>Description<th>Action<th>Diff <%= $^d %>
 <% for @($^b) -> @entry { %>
     <tr>
-        <td><a href="/<%= html uri_escape $page %>/<%= @entry[0] %>"><%= @entry[0] %></a>
+        <td><a href="/<%= html uri_escape $page %>/<%= @entry[0] %>" title="<%= html @entry[3] %>"><%= html @entry[2] %></a>
         <td><%= html @entry[1] %>
         <td><a href="/<%= $page %>/revert/<%= @entry[0] %>">Revert</a>
         <td><a href="/<%= $page %>/log/<%= $rev ?? "$rev/" !! "" %><%= @entry[0] %>"><%= @entry[0] %></a>
