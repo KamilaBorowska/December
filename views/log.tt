@@ -1,0 +1,24 @@
+<% my $page = $^a; my $rev = $^c; %>
+<!doctype html>
+<meta charset=utf-8>
+<title>December - <%= $^a %></title>
+<link rel=stylesheet href='http://perlcabal.org/~glitchmr/wiki/style.css'>
+<div class=menu>
+
+<ul>
+<li class=camelia><a href='/'><img src='http://perlcabal.org/~glitchmr/wiki/camelia2.png' alt='Main page'></a>
+<li><a href="/<%= $^a %>/edit">Edit</a>
+<li><a href="/<%= $^a %>/log">Log</a>
+<li><a href="/RANDOM">Random page</a>
+</ul>
+</div>
+<h1><%= $^a %></h1>
+<table>
+<tr><th>Revision<th>Description<th>Action<th>Diff <%= $^d %>
+<% for @($^b) -> @entry { %>
+    <tr>
+        <td><a href="/<%= $page %>/<%= @entry[0] %>"><%= @entry[0] %></a>
+        <td><%= @entry[1] %>
+        <td><a href="/<%= $page %>/revert/<%= @entry[0] %>">Revert</a>
+        <td><a href="/<%= $page %>/log/<%= $rev ?? "$rev/" !! "" %><%= @entry[0] %>"><%= @entry[0] %></a>
+<% } %>

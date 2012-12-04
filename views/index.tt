@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>December - <%= $^a %></title>
+<link rel=stylesheet href='http://perlcabal.org/~glitchmr/wiki/style.css'>
+<div class=menu>
+
+<ul>
+<li class=camelia><a href='/'><img src='http://perlcabal.org/~glitchmr/wiki/camelia2.png' alt='Main page'></a>
+<li><a href="/<%= $^a %>/edit">Edit</a>
+<li><a href="/<%= $^a %>/log">Log</a>
+<li><a href="/RANDOM">Random page</a>
+</ul>
+</div>
+<h1><%= $^a %></h1>
+<%= $^b %>

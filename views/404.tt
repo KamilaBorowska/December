@@ -1,0 +1,4 @@
+<!doctype html>
+<title>December - 404</title>
+<p><%= $^a %> doesn't seem to exist. Would you like to
+   <a href="/<%= $^a %>/edit">create it</a>?
